@@ -47,12 +47,12 @@ function validar(contacto){
 		arrayContactos.push(contacto);
 	}else{
 		for (var i =0; i <arrayContactos.length;i++ ){
+
 			if (contacto.nombre != arrayContactos[i].nombre) {
 				arrayContactos.push(contacto);
 			}else{
 				alert("ESTE NOMBRE DE CONTACTO YA SE ENCUENTRA REGISTRADO");
 			}
-			
 		}	
 	}
 	
