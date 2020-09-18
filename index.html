@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Agenda De Contactos </title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+
+    <div>
+        <h1 class="titulo" > AGENDA DE CONTACTOS </h1>
+    </div>
+
+    <div id="modalPrincipal" class="modalPrincipal">
+        <div class="contenidoModal">
+            <span class="cerrar">×</span>
+            <h2> REGISTRAR NUEVO CONTACTO </h2>
+             <form autocomplete="off" id="formulario">
+                <div>
+                    <label> NOMBRE </label>
+                    <input type="text" name="nombre" id="nombre"> 
+                </div>
+                <div>
+                    <label> DIRECCION </label>
+                    <input type="text" name="direccion" id="direccion"> 
+                </div>
+                <div>
+                    <label> TELEFONO </label>
+                    <input type="text" name="telefono" id="telefono"> 
+                </div>
+                <div>
+                    <input class="botonRegistrar" type="submit" value="REGISTRAR">  
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="listaConta" >
+        <h2 class="titulo2" > CONTACTOS </h2>
+        <div id="listaContactos">  
+            
+        </div>
+        <div style="margin-left: 700px;">
+        <button id="botonModal" class="boton" > Nuevo Contacto </button>
+        </div>
+    </div>
+    <br>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
