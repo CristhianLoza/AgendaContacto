@@ -42,21 +42,19 @@ var contacto = {
 	telefono:""
 }
 //Funcion Creada para validacion de 
-function validar(contacto){
+/*function validar(contacto){
 	if(arrayContactos.length === null){
 		arrayContactos.push(contacto);
 	}else{
 		for (var i =0; i <arrayContactos.length;i++ ){
-
-			if (contacto.nombre != arrayContactos[i].nombre) {
-				arrayContactos.push(contacto);
-			}else{
+			if (contacto.nombre === arrayContactos[i].nombre) {
 				alert("ESTE NOMBRE DE CONTACTO YA SE ENCUENTRA REGISTRADO");
 			}
+			return contacto;		
 		}	
+		
 	}
-	
-}
+}*/
 
 function agregarContacto(nombre,direccion,telefono){
 	var contacto = {
@@ -64,7 +62,7 @@ function agregarContacto(nombre,direccion,telefono){
 		direccion:direccion,
 		telefono:telefono
 	}
-	validar(contacto);
+	arrayContactos.push(contacto);
 }
 
 function limpiar(){
