@@ -1,3 +1,7 @@
+/*
+Funcion creada para ejecutar el modal del boton Nuevo Contacto 
+*/
+
 if(document.getElementById("botonModal")){
 	var modal = document.getElementById("modalPrincipal");
 	var btn = document.getElementById("botonModal");
@@ -28,6 +32,7 @@ if(document.getElementById("botonModal")){
 		}
 	}
 
+/* Variables Generales*/
 var formulario = document.getElementById("formulario");
 var nombre = document.getElementById("nombre");
 var direccion = document.getElementById("direccion");
@@ -41,6 +46,8 @@ var contacto = {
 	direccion:"",
 	telefono:""
 }
+
+
 //Funcion Creada para validacion de 
 /*function validar(contacto){
 	if(arrayContactos.length === null){
@@ -56,6 +63,12 @@ var contacto = {
 	}
 }*/
 
+
+/*
+Funcion agregar contacto 
+paramentros: nombre, direccion, telefono
+creado para guardar el contacto en una lista de contactos.
+*/
 function agregarContacto(nombre,direccion,telefono){
 	var contacto = {
 		nombre:nombre,
@@ -65,12 +78,22 @@ function agregarContacto(nombre,direccion,telefono){
 	arrayContactos.push(contacto);
 }
 
+/*
+Funcion Limpiar
+Limpiar valores de los datos ingresados
+ en el formulario de registrar Contactos
+*/
 function limpiar(){
 	nombre.value="";
 	direccion.value="";
 	telefono.value="";
 }
 
+/*
+Funcion event obsubmit
+creada para funcionamiento del boton registrar que se encuentra en el formulario
+la cual se encarga de toamr los valores y validar que los valores ingresados sean correctamente.
+*/
 formulario.onsubmit=function(e){
 	e.preventDefault();
 	var nombreContacto = document.getElementById("nombre").value;
@@ -90,13 +113,23 @@ formulario.onsubmit=function(e){
 	}
 }
 
-
+/* 
+Funcion guardarDatosLocales
+esta funcion es para agregar los datos a la local Storage
+y cargar la pagina al momento de agregar un nuevo contacto para eliminar o agregar los nuevos
+*/
 function guardarDatosLocales(){
 	localStorage.setItem("contactos", JSON.stringify(arrayContactos));
 	mostrarDatosLocales();
 	location.reload();	
 }
 
+/*
+Funcion mostrarDatosLocales
+esta funcion es encargada de realizar el proceso de trasformar los datos que se encontraban en la local storage
+ademas de realizar el ordenamiento de el arrayContactos para ordenarlo de forma alfabetica y crear cada uno de los cuarpos 
+de HTML de cada Contacto
+*/
 document.addEventListener("DOMContentLoaded",mostrarDatosLocales);
 function mostrarDatosLocales(){
 	arrayContactos = JSON.parse(localStorage.getItem("contactos"));
@@ -134,7 +167,11 @@ function mostrarDatosLocales(){
 	}
 }
 
-
+/*
+Funcion onclick
+esta funcion se encarga de realizar la busqueda del objeto boton borrar o editar
+tambien realiza el proceso de elimar un contacto y de editar un contacto
+*/
 listaContactos.onclick=function(e){
 	e.preventDefault();
 	if(e.target.classList[1]==="borrar"|| e.target.classList[1]==="editar"){
@@ -162,6 +199,10 @@ listaContactos.onclick=function(e){
 	}
 }
 
+/*
+Funcion eliminarContacto
+funcion encargada de recorrer el arrayContactos y realizar la eliminacion de todo el contenido de cada contacto 
+*/
 function eliminarContacto(nombreEliminar){
 	arrayContactos.forEach((elemento,index)=>{
 		if(elemento.nombre==nombreEliminar){
@@ -171,7 +212,10 @@ function eliminarContacto(nombreEliminar){
 	guardarDatosLocales();
 }
 
-
+/*
+Funcion editarContacto
+funcion creada para cambiar los datos que ya se encuentran en el arrayContactos de alguno de los contactos todos seran editados.
+*/
 function editarContacto(nombreEliminar,a,b,c) {
 	for (var i =0;i < arrayContactos.length;i++) {
 		if (arrayContactos[i].nombre == nombreEliminar ) {
